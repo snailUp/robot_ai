@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://codliahtlc361"]
+
+[ext_resource type="Script" uid="uid://ra85xbb86iri" path="res://game/ui/sample/ui_sample_panel.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://resources/components/progress_bar.tscn" id="2_progress"]
+[ext_resource type="PackedScene" uid="uid://listview001" path="res://resources/components/list_view.tscn" id="3_listview"]
+
+[node name="UISamplePanel" type="Panel" unique_id=1372299437]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=242178213]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=428315694]
+layout_mode = 2
+text = "组件测试面板"
+horizontal_alignment = 1
+
+[node name="MessageBoxSection" type="VBoxContainer" parent="VBoxContainer" unique_id=161334003]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/MessageBoxSection" unique_id=595001331]
+layout_mode = 2
+text = "MessageBox 测试"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MessageBoxSection" unique_id=1024711844]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ConfirmBtn" type="Button" parent="VBoxContainer/MessageBoxSection/HBoxContainer" unique_id=1588158967]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "确认对话框"
+
+[node name="AlertBtn" type="Button" parent="VBoxContainer/MessageBoxSection/HBoxContainer" unique_id=36296866]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "警告对话框"
+
+[node name="ToastSection" type="VBoxContainer" parent="VBoxContainer" unique_id=1168143368]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/ToastSection" unique_id=137906498]
+layout_mode = 2
+text = "Toast 测试"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ToastSection" unique_id=1142796041]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ShortBtn" type="Button" parent="VBoxContainer/ToastSection/HBoxContainer" unique_id=1300660239]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "短提示"
+
+[node name="LongBtn" type="Button" parent="VBoxContainer/ToastSection/HBoxContainer" unique_id=1594161434]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "长提示"
+
+[node name="ProgressSection" type="VBoxContainer" parent="VBoxContainer" unique_id=291848006]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/ProgressSection" unique_id=1700458570]
+layout_mode = 2
+text = "ProgressBar 测试"
+
+[node name="ProgressBar" parent="VBoxContainer/ProgressSection" unique_id=471127561 instance=ExtResource("2_progress")]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="StartBtn" type="Button" parent="VBoxContainer/ProgressSection" unique_id=1295053722]
+layout_mode = 2
+text = "开始动画"
+
+[node name="TooltipSection" type="VBoxContainer" parent="VBoxContainer" unique_id=83651846]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/TooltipSection" unique_id=1166683943]
+layout_mode = 2
+text = "Tooltip 测试"
+
+[node name="TooltipBtn" type="Button" parent="VBoxContainer/TooltipSection" unique_id=951665597]
+layout_mode = 2
+text = "悬停查看提示"
+
+[node name="ListViewSection" type="VBoxContainer" parent="VBoxContainer" unique_id=933106769]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/ListViewSection" unique_id=761963329]
+layout_mode = 2
+text = "ListView 测试"
+
+[node name="ListView" parent="VBoxContainer/ListViewSection" unique_id=513236323 instance=ExtResource("3_listview")]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ListViewSection" unique_id=512359709]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AddBtn" type="Button" parent="VBoxContainer/ListViewSection/HBoxContainer" unique_id=106261232]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "添加项"
+
+[node name="RemoveBtn" type="Button" parent="VBoxContainer/ListViewSection/HBoxContainer" unique_id=1198784948]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "删除项"
+
+[node name="CloseBtn" type="Button" parent="VBoxContainer" unique_id=736831491]
+layout_mode = 2
+text = "关闭"

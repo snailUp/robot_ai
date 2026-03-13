@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ddaews44lxdrj"]
+
+[ext_resource type="Script" uid="uid://bnctofvar03a3" path="res://framecore/entry.gd" id="1"]
+
+[node name="Entry" type="Node" unique_id=1817142206]
+script = ExtResource("1")

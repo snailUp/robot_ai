@@ -1,0 +1,17 @@
+[
+	{
+		"id": "angry_bull",
+		"name": "愤怒公牛",
+		"max_hp": 600,
+		"dash_speed": 1000,
+		"telegraph_time": 0.7,
+		"stun_time": 0.3,
+		"damage": 30,
+		"phase2_hp_threshold": 50,
+		"phase2_speed_multiplier": 1.5,
+		"phase2_telegraph_multiplier": 0.5,
+		"bounce_count": 5,
+		"trail_duration": 3.0,
+		"bullet_count": 12
+	}
+]

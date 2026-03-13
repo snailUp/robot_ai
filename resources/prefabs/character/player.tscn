@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bh53vsn20cugf"]
+
+[ext_resource type="Script" uid="uid://boekx24jn82df" path="res://game/character/player.gd" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://dyn43bd2pkab5" path="res://resources/animation/character/character_frames.tres" id="2"]
+[ext_resource type="PackedScene" uid="uid://378fe4cfcd0x" path="res://resources/prefabs/weapon/gun.tscn" id="3"]
+[ext_resource type="Script" uid="uid://cqb4liyftt48l" path="res://framecore/character/bullet_manager.gd" id="4"]
+[ext_resource type="Script" uid="uid://bpfdbhnrpwo0n" path="res://framecore/ui/health_bar.gd" id="5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(52, 116)
+
+[node name="Player" type="CharacterBody2D" unique_id=1592029066]
+script = ExtResource("1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1648599345]
+scale = Vector2(0.35, 0.35)
+sprite_frames = ExtResource("2")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1726711468]
+position = Vector2(6, 30)
+shape = SubResource("RectangleShape2D_player")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=442199633]
+
+[node name="Gun" parent="." unique_id=1464897956 instance=ExtResource("3")]
+position = Vector2(11, 50)
+recoil_recovery_speed = 30.0
+
+[node name="BulletManager" type="Node" parent="." unique_id=1802354826]
+script = ExtResource("4")
+
+[node name="HealthBar" type="Node2D" parent="." unique_id=505528250]
+position = Vector2(0, -83)
+script = ExtResource("5")

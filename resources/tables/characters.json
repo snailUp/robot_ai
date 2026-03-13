@@ -1,0 +1,11 @@
+[
+	{
+		"id": "player_001",
+		"name": "默认玩家",
+		"max_hp": 80,
+		"move_speed": 200,
+		"attack_power": 15,
+		"attack_speed": 3,
+		"bullet_speed": 500
+	}
+]

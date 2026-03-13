@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bbeatwt0nu4ws"]
+
+[ext_resource type="Script" uid="uid://qq5phbh4wo0h" path="res://game/effect/hit_effect.gd" id="1"]
+
+[node name="HitEffect" type="Node2D" unique_id=1359937548]
+script = ExtResource("1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=671005294]
+scale = Vector2(2, 2)

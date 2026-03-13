@@ -1,0 +1,47 @@
+[
+	{
+		"id": 1001,
+		"name": "第一关",
+		"difficulty": 1,
+		"map_scene_path": "res://resources/map/level/LevelMapScene.tscn",
+		"description": "简单关卡",
+		"icon": "res://resources/sprites/level/icon/img_1.png",
+		"background": ""
+	},
+	{
+		"id": 1002,
+		"name": "第二关",
+		"difficulty": 2,
+		"map_scene_path": "res://resources/map/level/LevelMapScene.tscn",
+		"description": "中等难度",
+		"icon": "res://resources/sprites/level/icon/img_2.png",
+		"background": ""
+	},
+	{
+		"id": 1003,
+		"name": "第三关",
+		"difficulty": 3,
+		"map_scene_path": "res://resources/map/level/LevelMapScene.tscn",
+		"description": "中等难度",
+		"icon": "res://resources/sprites/level/icon/img_3.png",
+		"background": ""
+	},
+	{
+		"id": 1004,
+		"name": "第四关",
+		"difficulty": 4,
+		"map_scene_path": "res://resources/map/level/LevelMapScene.tscn",
+		"description": "较高难度",
+		"icon": "res://resources/sprites/level/icon/img_4.png",
+		"background": ""
+	},
+	{
+		"id": 1005,
+		"name": "第五关",
+		"difficulty": 5,
+		"map_scene_path": "res://resources/map/level/LevelMapScene.tscn",
+		"description": "高难度关卡",
+		"icon": "res://resources/sprites/level/icon/img_5.png",
+		"background": ""
+	}
+]

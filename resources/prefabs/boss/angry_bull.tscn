@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://ngrybull001"]
+
+[ext_resource type="Script" uid="uid://b46e6vwqu338v" path="res://game/boss/angry_bull.gd" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://bullframes001" path="res://resources/animation/boss/b1/bull_frames.tres" id="2"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(79, 182)
+
+[node name="AngryBull" type="CharacterBody2D" unique_id=680438247]
+script = ExtResource("1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1305613879]
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("2")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=728139369]
+position = Vector2(13.5, 16)
+shape = SubResource("RectangleShape2D_1")
+
+[node name="StateChart" type="Node" parent="." unique_id=505267944]
+script = ExtResource("3")
+
+[node name="BossBehavior" type="Node" parent="StateChart" unique_id=1706349050]
+script = ExtResource("4")
+initial_state = NodePath("Phase1")
+
+[node name="Phase1" type="Node" parent="StateChart/BossBehavior" unique_id=27582305]
+script = ExtResource("4")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/BossBehavior/Phase1" unique_id=186085777]
+script = ExtResource("5")
+
+[node name="Transition" type="Node" parent="StateChart/BossBehavior/Phase1/Idle" unique_id=1863600225]
+script = ExtResource("6")
+to = NodePath("../../Telegraphing")
+delay_in_seconds = "1.07"
+
+[node name="Telegraphing" type="Node" parent="StateChart/BossBehavior/Phase1" unique_id=783209009]
+script = ExtResource("5")
+
+[node name="Transition" type="Node" parent="StateChart/BossBehavior/Phase1/Telegraphing" unique_id=1604082735]
+script = ExtResource("6")
+to = NodePath("../../Dashing")
+delay_in_seconds = "1.5"
+
+[node name="Dashing" type="Node" parent="StateChart/BossBehavior/Phase1" unique_id=289436432]
+script = ExtResource("5")
+
+[node name="Transition" type="Node" parent="StateChart/BossBehavior/Phase1/Dashing" unique_id=2106998501]
+script = ExtResource("6")
+to = NodePath("../../Falling")
+event = &"hit_wall"
+delay_in_seconds = "0.0"
+
+[node name="Transition2" type="Node" parent="StateChart/BossBehavior/Phase1/Dashing" unique_id=2106998502]
+script = ExtResource("6")
+to = NodePath("../../DashComplete")
+event = &"dash_complete"
+delay_in_seconds = "0.0"
+
+[node name="DashComplete" type="Node" parent="StateChart/BossBehavior/Phase1" unique_id=1988850897]
+script = ExtResource("5")
+
+[node name="Transition" type="Node" parent="StateChart/BossBehavior/Phase1/DashComplete" unique_id=1242382362]
+script = ExtResource("6")
+to = NodePath("../../Idle")
+event = &"dash_done"
+delay_in_seconds = "0.3"
+
+[node name="Falling" type="Node" parent="StateChart/BossBehavior/Phase1" unique_id=1988850896]
+script = ExtResource("5")
+
+[node name="Transition" type="Node" parent="StateChart/BossBehavior/Phase1/Falling" unique_id=1242382361]
+script = ExtResource("6")
+to = NodePath("../../Stun")
+delay_in_seconds = "0.8"
+
+[node name="Stun" type="Node" parent="StateChart/BossBehavior/Phase1" unique_id=174390455]
+script = ExtResource("5")
+
+[node name="Transition" type="Node" parent="StateChart/BossBehavior/Phase1/Stun" unique_id=124684817]
+script = ExtResource("6")
+to = NodePath("../../Idle")
+delay_in_seconds = "0.47"
+
+[node name="Transition" type="Node" parent="StateChart/BossBehavior/Phase1" unique_id=871920756]
+script = ExtResource("6")
+to = NodePath("../../Phase2")
+event = &"enrage"
+delay_in_seconds = "0.0"
+
+[node name="Transition2" type="Node" parent="StateChart/BossBehavior/Phase1" unique_id=999999991]
+script = ExtResource("6")
+to = NodePath("../../Dead")
+event = &"die"
+delay_in_seconds = "0.0"
+
+[node name="Phase2" type="Node" parent="StateChart/BossBehavior" unique_id=1890023545]
+script = ExtResource("4")
+initial_state = NodePath("EnragedEntry")
+
+[node name="EnragedEntry" type="Node" parent="StateChart/BossBehavior/Phase2" unique_id=481615154]
+script = ExtResource("5")
+
+[node name="Transition" type="Node" parent="StateChart/BossBehavior/Phase2/EnragedEntry" unique_id=613567331]
+script = ExtResource("6")
+to = NodePath("../../Idle")
+delay_in_seconds = "1.5"
+
+[node name="Idle" type="Node" parent="StateChart/BossBehavior/Phase2" unique_id=341713729]
+script = ExtResource("5")
+
+[node name="Transition" type="Node" parent="StateChart/BossBehavior/Phase2/Idle" unique_id=1059737853]
+script = ExtResource("6")
+to = NodePath("../../Telegraphing")
+delay_in_seconds = "0.4"
+
+[node name="Telegraphing" type="Node" parent="StateChart/BossBehavior/Phase2" unique_id=1251802940]
+script = ExtResource("5")
+
+[node name="Transition" type="Node" parent="StateChart/BossBehavior/Phase2/Telegraphing" unique_id=1246183482]
+script = ExtResource("6")
+to = NodePath("../../Dashing")
+delay_in_seconds = "0.75"
+
+[node name="Dashing" type="Node" parent="StateChart/BossBehavior/Phase2" unique_id=755984176]
+script = ExtResource("5")
+
+[node name="Transition" type="Node" parent="StateChart/BossBehavior/Phase2/Dashing" unique_id=397015737]
+script = ExtResource("6")
+to = NodePath("../../Falling")
+event = &"hit_wall"
+delay_in_seconds = "0.0"
+
+[node name="Transition2" type="Node" parent="StateChart/BossBehavior/Phase2/Dashing" unique_id=397015738]
+script = ExtResource("6")
+to = NodePath("../../DashComplete")
+event = &"dash_complete"
+delay_in_seconds = "0.0"
+
+[node name="DashComplete" type="Node" parent="StateChart/BossBehavior/Phase2" unique_id=755984177]
+script = ExtResource("5")
+
+[node name="Transition" type="Node" parent="StateChart/BossBehavior/Phase2/DashComplete" unique_id=397015739]
+script = ExtResource("6")
+to = NodePath("../../Idle")
+event = &"dash_done"
+delay_in_seconds = "0.3"
+
+[node name="Falling" type="Node" parent="StateChart/BossBehavior/Phase2" unique_id=1565425444]
+script = ExtResource("5")
+
+[node name="Transition" type="Node" parent="StateChart/BossBehavior/Phase2/Falling" unique_id=306708472]
+script = ExtResource("6")
+to = NodePath("../../Stun")
+delay_in_seconds = "0.8"
+
+[node name="Stun" type="Node" parent="StateChart/BossBehavior/Phase2" unique_id=1909404693]
+script = ExtResource("5")
+
+[node name="Transition" type="Node" parent="StateChart/BossBehavior/Phase2/Stun" unique_id=659892570]
+script = ExtResource("6")
+to = NodePath("../../Idle")
+delay_in_seconds = "0.47"
+
+[node name="Transition" type="Node" parent="StateChart/BossBehavior/Phase2" unique_id=999999992]
+script = ExtResource("6")
+to = NodePath("../../Dead")
+event = &"die"
+delay_in_seconds = "0.0"
+
+[node name="Dead" type="Node" parent="StateChart/BossBehavior" unique_id=999999993]
+script = ExtResource("5")

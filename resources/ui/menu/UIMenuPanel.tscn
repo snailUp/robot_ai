@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://c8menu001"]
+
+[ext_resource type="Script" uid="uid://cp3jh13q7lgwn" path="res://game/ui/menu/UIMenuPanel.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c16vkjqp8kpli" path="res://resources/sprites/menu/img_dt.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cnqw1n2w1n37i" path="res://resources/sprites/menu/img_dih.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://ko10l7jkiv0s" path="res://resources/sprites/menu/img_ditu.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://c85wxcu3x3jom" path="res://resources/sprites/menu/img_dil.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://hticn0bo6hco" path="res://resources/sprites/menu/img_zhuangbei.png" id="6"]
+[ext_resource type="Script" uid="uid://blghl8nx0esln" path="res://framecore/component/ui/normal/button_sound.gd" id="6_iad0f"]
+[ext_resource type="Texture2D" uid="uid://caos3oi04em7b" path="res://resources/sprites/menu/img_hdih.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://cluvgecrmvrd4" path="res://resources/sprites/menu/img_tuichu.png" id="8"]
+[ext_resource type="Script" uid="uid://cbmxso7l3b1ep" path="res://framecore/component/ui/normal/hover_scale.gd" id="9"]
+
+[node name="UIMenuPanel" type="Control" unique_id=556599349]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1530580191]
+texture = ExtResource("2")
+centered = false
+
+[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=1491771050]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -120.0
+offset_right = 150.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="LevelButton" type="TextureButton" parent="ButtonContainer" unique_id=1041649295]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3")
+stretch_mode = 5
+script = ExtResource("9")
+
+[node name="Label" type="Label" parent="ButtonContainer/LevelButton" unique_id=1330404023]
+layout_mode = 0
+offset_left = 404.09717
+offset_top = 44.5
+offset_right = 604.09717
+offset_bottom = 244.5
+rotation = 0.15358898
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 70
+text = "关卡"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="ButtonContainer/LevelButton" unique_id=1171351203]
+layout_mode = 0
+offset_left = 811.5
+offset_top = 117.5
+offset_right = 1041.5
+offset_bottom = 332.5
+texture = ExtResource("4")
+stretch_mode = 5
+
+[node name="ButtonSound" type="Control" parent="ButtonContainer/LevelButton" unique_id=116235133]
+anchors_preset = 0
+offset_left = 811.5
+offset_top = 117.5
+offset_right = 811.5
+offset_bottom = 117.5
+script = ExtResource("6_iad0f")
+
+[node name="EquipButton" type="TextureButton" parent="ButtonContainer" unique_id=1197637635]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5")
+stretch_mode = 5
+script = ExtResource("9")
+
+[node name="Label" type="Label" parent="ButtonContainer/EquipButton" unique_id=43402162]
+layout_mode = 0
+offset_left = 258.09717
+offset_top = 18.0
+offset_right = 458.09717
+offset_bottom = 218.0
+rotation = 0.15358898
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 70
+text = "装备"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="ButtonContainer/EquipButton" unique_id=303601742]
+layout_mode = 0
+offset_left = 524.5
+offset_top = 45.5
+offset_right = 761.5
+offset_bottom = 274.5
+texture = ExtResource("6")
+stretch_mode = 5
+
+[node name="ButtonSound" type="Control" parent="ButtonContainer/EquipButton" unique_id=1686855520]
+anchors_preset = 0
+offset_left = 524.5
+offset_top = 45.5
+offset_right = 524.5
+offset_bottom = 45.5
+script = ExtResource("6_iad0f")
+
+[node name="ExitButton" type="TextureButton" parent="ButtonContainer" unique_id=798175507]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("7")
+stretch_mode = 5
+script = ExtResource("9")
+
+[node name="Label" type="Label" parent="ButtonContainer/ExitButton" unique_id=1325391666]
+layout_mode = 0
+offset_left = 407.59717
+offset_top = 46.0
+offset_right = 607.59717
+offset_bottom = 246.0
+rotation = 0.15358898
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 70
+text = "退出"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="ButtonContainer/ExitButton" unique_id=696619216]
+layout_mode = 0
+offset_left = 818.5
+offset_top = 120.5
+offset_right = 1041.5
+offset_bottom = 332.5
+texture = ExtResource("8")
+stretch_mode = 5
+
+[node name="ButtonSound" type="Control" parent="ButtonContainer/ExitButton" unique_id=1568785452]
+anchors_preset = 0
+offset_left = 818.5
+offset_top = 120.5
+offset_right = 818.5
+offset_bottom = 120.5
+script = ExtResource("6_iad0f")

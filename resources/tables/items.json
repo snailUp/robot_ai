@@ -1,0 +1,42 @@
+[
+	{
+		"id": "test_item_01",
+		"name": "测试物品1",
+		"type": "consumable",
+		"rarity": 1,
+		"price": 100,
+		"stackable": true
+	},
+	{
+		"id": "test_item_02",
+		"name": "测试物品2",
+		"type": "equipment",
+		"rarity": 3,
+		"price": 500,
+		"stackable": false
+	},
+	{
+		"id": "test_item_03",
+		"name": "测试物品3",
+		"type": "material",
+		"rarity": 2,
+		"price": 50,
+		"stackable": true
+	},
+	{
+		"id": "test_item_04",
+		"name": "稀有物品",
+		"type": "consumable",
+		"rarity": 4,
+		"price": 1000,
+		"stackable": false
+	},
+	{
+		"id": "test_item_05",
+		"name": "普通材料",
+		"type": "material",
+		"rarity": 1,
+		"price": 10,
+		"stackable": true
+	}
+]
